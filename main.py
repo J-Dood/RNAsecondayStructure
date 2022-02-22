@@ -4,10 +4,8 @@
 # It then returns the number of paired bases in teh sequence, as a score.
 
 
-
 # Imports
 import numpy as np
-
 
 
 # Functions
