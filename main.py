@@ -1,7 +1,7 @@
 # Jordan Dood and Braeden Sopp
 # 2/19/2022
 # This code determines the secondary structure of a given ACGU RNA sequence.
-# It then returns the number of paired bases in teh sequence, as a score.
+# It then returns the number of paired bases in the sequence, as a score.
 
 
 # Imports
