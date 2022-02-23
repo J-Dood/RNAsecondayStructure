@@ -61,17 +61,27 @@ def wrapper(sequence):
 
 # This function handles the recursion
 def recurse(sequence, memo_array, i, j):
-    if i > j-4:
+    if i >= j-4:
         opt = 0
     elif memo_array[i, j] != 0:
         opt = memo_array[i, j]
     else:
-        opt = recurse(sequence, memo_array, i, j-1)
-        for k in range(i, j):
-            if base_pair(sequence[k], sequence[j]):
-                result_pair = 1 + recurse(sequence, memo_array, i, k-1) + recurse(sequence, memo_array, k+1, j-1)
-                if result_pair > opt:
-                    opt = result_pair
+        # opt = recurse(sequence, memo_array, i, j-1)
+        # for k in range(i, j):
+        #     if base_pair(sequence[k], sequence[j]):
+        #         result_pair = 1 + recurse(sequence, memo_array, i, k-1) + recurse(sequence, memo_array, k+1, j-1)
+        #         if result_pair > opt:
+        #             opt = result_pair
+        length = len(sequence)
+        for k in range(5, length):
+            for i in range(0, length - k):
+                j = i + k
+                opt = memo_array[i, j-1]
+                for t in range(i, j):
+                    result_pair = 1 + memo_array[i, t-1] + memo_array[t+1, j-1]
+                    if result_pair > opt:
+                        opt = result_pair
+                memo_array[i, j] = opt
     memo_array[i, j] = opt
     return opt
 
